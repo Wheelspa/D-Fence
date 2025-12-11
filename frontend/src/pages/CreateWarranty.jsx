@@ -73,6 +73,19 @@ export default function CreateWarranty() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate required select fields
+    if (!formData.ppf_product) {
+      toast.error("Please select a PPF product");
+      setLoading(false);
+      return;
+    }
+    if (!formData.ppf_coverage) {
+      toast.error("Please select coverage type");
+      setLoading(false);
+      return;
+    }
+    
     setLoading(true);
 
     try {
@@ -83,6 +96,7 @@ export default function CreateWarranty() {
       toast.success("Warranty created successfully!");
       navigate(`/warranties/${response.data.id}`);
     } catch (error) {
+      console.error("Error creating warranty:", error);
       toast.error(error.response?.data?.detail || "Failed to create warranty");
     } finally {
       setLoading(false);

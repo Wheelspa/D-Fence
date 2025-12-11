@@ -145,8 +145,28 @@ export default function CreateWarranty() {
     e.preventDefault();
     
     // Validate required select fields
+    if (!formData.service_type) {
+      toast.error("Please select a service type");
+      setLoading(false);
+      return;
+    }
+    if (!formData.vehicle_type) {
+      toast.error("Please select vehicle type");
+      setLoading(false);
+      return;
+    }
+    if (!formData.vehicle_make) {
+      toast.error("Please select vehicle make");
+      setLoading(false);
+      return;
+    }
     if (!formData.ppf_product) {
-      toast.error("Please select a PPF product");
+      toast.error("Please select a product");
+      setLoading(false);
+      return;
+    }
+    if (!formData.ppf_thickness) {
+      toast.error("Please select film thickness");
       setLoading(false);
       return;
     }

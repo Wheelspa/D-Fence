@@ -81,12 +81,15 @@ class WarrantyCreate(BaseModel):
     customer_name: str
     customer_email: EmailStr
     customer_phone: str
+    service_type: str  # PPF, Wrap, Window Filming
+    vehicle_type: str  # Sedan, SUV, etc.
     vehicle_make: str
     vehicle_model: str
     vehicle_year: str
     vehicle_vin: Optional[str] = None
     vehicle_color: Optional[str] = None
     ppf_product: str
+    ppf_thickness: str  # 150 Micron to 250 Micron
     ppf_coverage: str  # Full Body, Partial, etc.
     installation_date: str
     warranty_years: int = 5

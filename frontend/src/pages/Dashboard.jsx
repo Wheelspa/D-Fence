@@ -49,7 +49,7 @@ export default function Dashboard() {
       <div className="min-h-screen bg-[#050505]">
         <Navbar />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
-          <div className="animate-pulse text-[#D4AF37]">Loading...</div>
+          <div className="animate-pulse text-[#E53935]">Loading...</div>
         </div>
       </div>
     );
@@ -60,7 +60,7 @@ export default function Dashboard() {
       title: "Total Warranties",
       value: stats?.total_warranties || 0,
       icon: Shield,
-      color: "#D4AF37",
+      color: "#E53935",
     },
     {
       title: "Active",
@@ -101,7 +101,7 @@ export default function Dashboard() {
             <Link to="/warranties/new">
               <Button
                 data-testid="create-warranty-btn"
-                className="bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-[#F3E5AB] transition-all duration-300 rounded-none h-12 px-6"
+                className="bg-[#E53935] text-white font-bold uppercase tracking-wider hover:bg-[#FF6F00] transition-all duration-300 rounded-none h-12 px-6"
               >
                 <Plus className="w-5 h-5 mr-2" />
                 New Warranty
@@ -111,7 +111,7 @@ export default function Dashboard() {
               <Button
                 data-testid="view-warranties-btn"
                 variant="outline"
-                className="border-[#27272A] text-white hover:border-[#D4AF37] hover:text-[#D4AF37] bg-transparent rounded-none h-12 px-6"
+                className="border-[#27272A] text-white hover:border-[#E53935] hover:text-[#E53935] bg-transparent rounded-none h-12 px-6"
               >
                 <FileText className="w-5 h-5 mr-2" />
                 View All
@@ -126,7 +126,7 @@ export default function Dashboard() {
             <Card
               key={index}
               data-testid={`stat-card-${stat.title.toLowerCase().replace(/\s/g, '-')}`}
-              className="bg-[#0A0A0A] border-[#27272A] hover:border-[#00F0FF] transition-colors duration-300 rounded-none"
+              className="bg-[#0A0A0A] border-[#27272A] hover:border-[#B8860B] transition-colors duration-300 rounded-none"
             >
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
@@ -179,9 +179,9 @@ export default function Dashboard() {
                       borderRadius: 0,
                     }}
                     labelStyle={{ color: "#fff" }}
-                    itemStyle={{ color: "#00F0FF" }}
+                    itemStyle={{ color: "#E53935" }}
                   />
-                  <Bar dataKey="count" fill="#00F0FF" />
+                  <Bar dataKey="count" fill="#E53935" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -190,11 +190,11 @@ export default function Dashboard() {
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-          <Card className="bg-[#0A0A0A] border-[#27272A] hover:border-[#D4AF37] transition-colors duration-300 rounded-none group cursor-pointer">
+          <Card className="bg-[#0A0A0A] border-[#27272A] hover:border-[#E53935] transition-colors duration-300 rounded-none group cursor-pointer">
             <Link to="/warranties/new" className="block">
               <CardContent className="p-6 flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#121212] flex items-center justify-center border border-[#27272A] group-hover:border-[#D4AF37] transition-colors">
-                  <Plus className="w-6 h-6 text-[#D4AF37]" />
+                <div className="w-12 h-12 bg-[#121212] flex items-center justify-center border border-[#27272A] group-hover:border-[#E53935] transition-colors">
+                  <Plus className="w-6 h-6 text-[#E53935]" />
                 </div>
                 <div>
                   <h3 className="font-['Chivo'] text-white font-bold uppercase text-sm tracking-wider">
@@ -208,11 +208,11 @@ export default function Dashboard() {
             </Link>
           </Card>
 
-          <Card className="bg-[#0A0A0A] border-[#27272A] hover:border-[#D4AF37] transition-colors duration-300 rounded-none group cursor-pointer">
+          <Card className="bg-[#0A0A0A] border-[#27272A] hover:border-[#E53935] transition-colors duration-300 rounded-none group cursor-pointer">
             <Link to="/warranties" className="block">
               <CardContent className="p-6 flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#121212] flex items-center justify-center border border-[#27272A] group-hover:border-[#D4AF37] transition-colors">
-                  <FileText className="w-6 h-6 text-[#00F0FF]" />
+                <div className="w-12 h-12 bg-[#121212] flex items-center justify-center border border-[#27272A] group-hover:border-[#E53935] transition-colors">
+                  <FileText className="w-6 h-6 text-[#B8860B]" />
                 </div>
                 <div>
                   <h3 className="font-['Chivo'] text-white font-bold uppercase text-sm tracking-wider">
@@ -226,10 +226,10 @@ export default function Dashboard() {
             </Link>
           </Card>
 
-          <Card className="bg-[#0A0A0A] border-[#27272A] hover:border-[#D4AF37] transition-colors duration-300 rounded-none group cursor-pointer">
+          <Card className="bg-[#0A0A0A] border-[#27272A] hover:border-[#E53935] transition-colors duration-300 rounded-none group cursor-pointer">
             <Link to="/warranties?status=expiring_soon" className="block">
               <CardContent className="p-6 flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#121212] flex items-center justify-center border border-[#27272A] group-hover:border-[#D4AF37] transition-colors">
+                <div className="w-12 h-12 bg-[#121212] flex items-center justify-center border border-[#27272A] group-hover:border-[#E53935] transition-colors">
                   <AlertTriangle className="w-6 h-6 text-[#F59E0B]" />
                 </div>
                 <div>

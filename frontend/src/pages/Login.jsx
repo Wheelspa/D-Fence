@@ -55,12 +55,11 @@ export default function Login() {
         <div className="w-full max-w-md">
           {/* Logo Section */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-none border-2 border-[#D4AF37] mb-6">
-              <Shield className="w-10 h-10 text-[#D4AF37]" />
-            </div>
-            <h1 className="font-['Chivo'] text-5xl font-black text-[#D4AF37] tracking-tight uppercase">
-              D-Fence
-            </h1>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_d-fence-wheelspa/artifacts/4frllqka_D-FENCE%20Logo_page-0001.jpg"
+              alt="D-Fence Logo"
+              className="w-48 h-48 mx-auto object-contain mb-4"
+            />
             <p className="text-[#A1A1AA] mt-2 font-['Manrope'] text-sm tracking-widest uppercase">
               by Wheelspa Private Limited
             </p>
@@ -86,7 +85,7 @@ export default function Login() {
                       type="text"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="pl-10 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                      className="pl-10 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                       placeholder="Enter your name"
                       required={!isLogin}
                     />
@@ -106,7 +105,7 @@ export default function Login() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="pl-10 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                    className="pl-10 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                     placeholder="staff@dfence.com"
                     required
                   />
@@ -125,7 +124,7 @@ export default function Login() {
                     type="password"
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                    className="pl-10 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                    className="pl-10 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                     placeholder="Enter password"
                     required
                   />
@@ -136,7 +135,7 @@ export default function Login() {
                 type="submit"
                 data-testid="login-submit-btn"
                 disabled={loading}
-                className="w-full h-12 bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-[#F3E5AB] transition-all duration-300 rounded-none"
+                className="w-full h-12 bg-[#E53935] text-white font-bold uppercase tracking-wider hover:bg-[#FF6F00] transition-all duration-300 rounded-none"
               >
                 {loading ? "Please wait..." : isLogin ? "Sign In" : "Create Account"}
               </Button>
@@ -147,7 +146,7 @@ export default function Login() {
                 type="button"
                 data-testid="toggle-auth-mode"
                 onClick={() => setIsLogin(!isLogin)}
-                className="text-[#A1A1AA] hover:text-[#D4AF37] transition-colors text-sm"
+                className="text-[#A1A1AA] hover:text-[#E53935] transition-colors text-sm"
               >
                 {isLogin ? "Don't have an account? Create one" : "Already have an account? Sign in"}
               </button>

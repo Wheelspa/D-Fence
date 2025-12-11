@@ -9,7 +9,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
-  Shield,
   LayoutDashboard,
   FileText,
   Plus,
@@ -42,11 +41,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 border border-[#D4AF37] flex items-center justify-center">
-              <Shield className="w-5 h-5 text-[#D4AF37]" />
-            </div>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_d-fence-wheelspa/artifacts/4frllqka_D-FENCE%20Logo_page-0001.jpg"
+              alt="D-Fence Logo"
+              className="w-12 h-12 object-contain"
+            />
             <div className="hidden sm:block">
-              <h1 className="font-['Chivo'] text-xl font-black text-[#D4AF37] tracking-tight uppercase leading-none">
+              <h1 className="font-['Chivo'] text-xl font-black text-[#E53935] tracking-tight uppercase leading-none">
                 D-Fence
               </h1>
               <p className="text-[#52525B] text-[10px] tracking-widest uppercase">
@@ -64,7 +65,7 @@ export default function Navbar() {
                   data-testid={`nav-${item.label.toLowerCase()}`}
                   className={`h-10 px-4 rounded-none transition-all duration-200 ${
                     isActive(item.path)
-                      ? "text-[#D4AF37] bg-[#D4AF37]/10"
+                      ? "text-[#E53935] bg-[#E53935]/10"
                       : "text-[#A1A1AA] hover:text-white hover:bg-[#121212]"
                   }`}
                 >
@@ -97,7 +98,7 @@ export default function Navbar() {
                     key={item.path}
                     onClick={() => navigate(item.path)}
                     className={`${
-                      isActive(item.path) ? "text-[#D4AF37]" : "text-white"
+                      isActive(item.path) ? "text-[#E53935]" : "text-white"
                     } hover:bg-[#121212] cursor-pointer`}
                   >
                     <item.icon className="w-4 h-4 mr-2" />

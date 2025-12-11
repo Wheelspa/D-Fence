@@ -1,0 +1,156 @@
+{
+  "brand_identity": {
+    "name": "D-Fence",
+    "company": "Wheelspa Private Limited",
+    "archetype": "Jewel & Luxury (Public) + Electric & Neon (Dashboard)",
+    "tone": "Protective, High-Tech, Premium, Authoritative",
+    "visual_metaphor": "The Vault",
+    "core_values": ["Impenetrable Protection", "Showroom Shine", "Data Precision"]
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Chivo, sans-serif",
+      "body": "Manrope, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "weights": {
+      "headings": "900",
+      "subheadings": "700",
+      "body": "400"
+    },
+    "usage_rules": {
+      "headings": "Uppercase, tracking-tight, leading-none. Use for page titles and major stats.",
+      "body": "High legibility, relaxed leading. Use for tables and forms.",
+      "labels": "Uppercase, tracking-widest, text-xs, opacity-70."
+    }
+  },
+  "colors": {
+    "theme": "dark",
+    "palette": {
+      "background": {
+        "default": "#050505",
+        "paper": "#0A0A0A",
+        "subtle": "#121212"
+      },
+      "primary": {
+        "main": "#D4AF37",
+        "light": "#F3E5AB",
+        "dark": "#8F7524",
+        "description": "Metallic Gold - Use for Brand Identity, Certificates, and Primary CTAs"
+      },
+      "secondary": {
+        "main": "#00F0FF",
+        "light": "#80F7FF",
+        "dark": "#0099A3",
+        "description": "Electric Cyan - Use for Data Visualization, Active States, and Dashboard Accents"
+      },
+      "neutral": {
+        "50": "#FAFAFA",
+        "100": "#F4F4F5",
+        "200": "#E4E4E7",
+        "300": "#D4D4D8",
+        "400": "#A1A1AA",
+        "500": "#71717A",
+        "600": "#52525B",
+        "700": "#3F3F46",
+        "800": "#27272A",
+        "900": "#18181B"
+      },
+      "status": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#3B82F6"
+      }
+    },
+    "gradients": {
+      "gold_rush": "linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #8F7524 100%)",
+      "cyber_glow": "linear-gradient(180deg, rgba(0, 240, 255, 0) 0%, rgba(0, 240, 255, 0.1) 100%)",
+      "dark_void": "radial-gradient(circle at center, #121212 0%, #050505 100%)"
+    }
+  },
+  "layout": {
+    "spacing_scale": "Generous (2x standard)",
+    "container_padding": "p-6 md:p-12",
+    "grids": {
+      "dashboard": {
+        "type": "Control Room",
+        "cols": "grid-cols-1 md:grid-cols-4",
+        "gap": "gap-4",
+        "rules": "Dense, no jagged bottoms, 100% height utilization."
+      },
+      "public_verification": {
+        "type": "Tetris",
+        "cols": "grid-cols-1 md:grid-cols-12",
+        "gap": "gap-8",
+        "rules": "Asymmetrical, artistic, trust-building."
+      }
+    }
+  },
+  "components": {
+    "cards": {
+      "dashboard": "Flat background (#0A0A0A), 1px border (#27272A), no shadow. Hover: Border becomes #00F0FF (Cyan).",
+      "public": "Glassmorphism. bg-black/40, backdrop-blur-xl, border-white/10."
+    },
+    "buttons": {
+      "primary": "bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-[#F3E5AB] transition-all duration-300 sharp-edges",
+      "secondary": "border border-[#27272A] text-white hover:border-[#D4AF37] hover:text-[#D4AF37] bg-transparent"
+    },
+    "inputs": {
+      "style": "bg-[#121212] border-[#27272A] text-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] h-12 rounded-none"
+    },
+    "tables": {
+      "header": "uppercase text-xs tracking-widest text-neutral-500 border-b border-[#27272A]",
+      "row": "hover:bg-[#121212] transition-colors border-b border-[#27272A]"
+    }
+  },
+  "visual_enhancers": {
+    "textures": "Subtle noise overlay on the main background to prevent banding.",
+    "borders": "Tracing Beam effect on active warranty cards.",
+    "shadows": "Glow effects instead of drop shadows. box-shadow: 0 0 20px rgba(212, 175, 55, 0.1)."
+  },
+  "assets": {
+    "images": {
+      "hero_bg": {
+        "url": "https://images.unsplash.com/photo-1637300417161-bff1e04ea9f6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBzcG9ydHMlMjBjYXIlMjBkYXJrJTIwYmFja2dyb3VuZCUyMHN0dWRpbyUyMGxpZ2h0fGVufDB8fHx8MTc2NTQ0NTQ3OXww&ixlib=rb-4.1.0&q=85",
+        "alt": "Luxury car in dark garage",
+        "usage": "Login Page Background, Public Verification Hero"
+      },
+      "texture_bg": {
+        "url": "https://images.unsplash.com/photo-1705674337411-3b89e5afcc11?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGdsb3NzeSUyMGJsYWNrJTIwc3VyZmFjZSUyMHByb3RlY3Rpb258ZW58MHx8fHwxNzY1NDQ1NDgzfDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Abstract glossy black surface",
+        "usage": "Certificate Background, Card Accents"
+      },
+      "service_detail": {
+        "url": "https://images.pexels.com/photos/3615708/pexels-photo-3615708.jpeg",
+        "alt": "PPF Application Detail",
+        "usage": "About Section, Service Info"
+      }
+    },
+    "icons": "Phosphor Icons (Regular weight for UI, Duotone for Dashboard Stats)"
+  },
+  "libraries": {
+    "charts": "Recharts (Customized with Electric Cyan and Gold strokes)",
+    "animation": "Framer Motion (Micro-interactions, Page Transitions)",
+    "dates": "date-fns",
+    "notifications": "Sonner",
+    "pdf": "react-pdf or jspdf"
+  },
+  "instructions_to_main_agent": [
+    "Implement the 'Control Room' grid for the Admin Dashboard. It must feel dense and data-rich.",
+    "Use the 'Tetris' grid for the Public Verification page to make it feel like a premium brand experience.",
+    "The 'Create Warranty' form should feel like a high-end configuration tool, not a tax form. Use steps or clear sections.",
+    "The Warranty Certificate must be printable. Design a specific print-friendly view.",
+    "Use the Gold color (#D4AF37) sparingly for high-value actions. Use Cyan (#00F0FF) for data.",
+    "Ensure the 'Dark Mode' is deep and rich, not just grey. Use the #050505 background.",
+    "Add a 'Tracing Beam' border effect to the active warranty card in the dashboard."
+  ],
+  "universal_guidelines": [
+    "Do not use gradients for text.",
+    "Do not use 'Inter' for headings. Use 'Chivo'.",
+    "Do not center-align everything. Use asymmetry.",
+    "Always add hover states to interactive elements.",
+    "Use 'sonner' for toasts.",
+    "Add 'data-testid' to all interactive elements."
+  ]
+}

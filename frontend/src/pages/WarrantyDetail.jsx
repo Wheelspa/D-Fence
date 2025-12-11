@@ -212,11 +212,12 @@ export default function WarrantyDetail() {
                   </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <DetailItem label="Vehicle Type" value={warranty.vehicle_type || "N/A"} />
                   <DetailItem label="Make" value={warranty.vehicle_make} />
                   <DetailItem label="Model" value={warranty.vehicle_model} />
                   <DetailItem label="Year" value={warranty.vehicle_year} />
                   <DetailItem label="Color" value={warranty.vehicle_color || "N/A"} />
-                  <DetailItem label="VIN" value={warranty.vehicle_vin || "N/A"} className="md:col-span-2" />
+                  <DetailItem label="VIN" value={warranty.vehicle_vin || "N/A"} />
                 </div>
               </CardContent>
             </Card>
@@ -231,7 +232,9 @@ export default function WarrantyDetail() {
                   </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <DetailItem label="PPF Product" value={warranty.ppf_product} />
+                  <DetailItem label="Service Type" value={warranty.service_type || "PPF"} />
+                  <DetailItem label="Product Brand" value={warranty.ppf_product} />
+                  <DetailItem label="Film Thickness" value={warranty.ppf_thickness || "N/A"} />
                   <DetailItem label="Coverage" value={warranty.ppf_coverage} />
                   <DetailItem 
                     label="Installation Date" 

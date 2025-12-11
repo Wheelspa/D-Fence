@@ -421,7 +421,7 @@ export default function CreateWarranty() {
             </div>
           </div>
 
-          {/* PPF & Warranty Details */}
+          {/* Protection Details */}
           <div className="bg-[#0A0A0A] border border-[#27272A] p-6 md:p-8">
             <div className="flex items-center gap-3 mb-6">
               <Shield className="w-5 h-5 text-[#10B981]" />
@@ -433,7 +433,7 @@ export default function CreateWarranty() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label className="text-[#A1A1AA] uppercase text-xs tracking-widest">
-                  PPF Product *
+                  Product Brand *
                 </Label>
                 <Select
                   value={formData.ppf_product}
@@ -443,9 +443,9 @@ export default function CreateWarranty() {
                     data-testid="ppf-product-select"
                     className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   >
-                    <SelectValue placeholder="Select product" />
+                    <SelectValue placeholder="Select product brand" />
                   </SelectTrigger>
-                  <SelectContent className="bg-[#0A0A0A] border-[#27272A]">
+                  <SelectContent className="bg-[#0A0A0A] border-[#27272A] max-h-[300px]">
                     {PPF_PRODUCTS.map((product) => (
                       <SelectItem
                         key={product}
@@ -453,6 +453,34 @@ export default function CreateWarranty() {
                         className="text-white hover:bg-[#121212] focus:bg-[#121212]"
                       >
                         {product}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-[#A1A1AA] uppercase text-xs tracking-widest">
+                  Film Thickness *
+                </Label>
+                <Select
+                  value={formData.ppf_thickness}
+                  onValueChange={(value) => handleChange("ppf_thickness", value)}
+                >
+                  <SelectTrigger 
+                    data-testid="ppf-thickness-select"
+                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
+                  >
+                    <SelectValue placeholder="Select thickness" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-[#0A0A0A] border-[#27272A] max-h-[300px]">
+                    {PPF_THICKNESS.map((thickness) => (
+                      <SelectItem
+                        key={thickness}
+                        value={thickness}
+                        className="text-white hover:bg-[#121212] focus:bg-[#121212]"
+                      >
+                        {thickness}
                       </SelectItem>
                     ))}
                   </SelectContent>

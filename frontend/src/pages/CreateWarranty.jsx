@@ -24,6 +24,73 @@ import { CalendarIcon, User, Car, Shield, ArrowLeft } from "lucide-react";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
+const SERVICE_TYPES = [
+  "PPF (Paint Protection Film)",
+  "Wrap",
+  "Window Filming",
+];
+
+const VEHICLE_TYPES = [
+  "Sedan",
+  "SUV",
+  "Hatchback",
+  "Coupe",
+  "Convertible",
+  "Pickup Truck",
+  "Van",
+  "Sports Car",
+  "Luxury Car",
+  "Electric Vehicle",
+  "Motorcycle",
+  "Other",
+];
+
+const VEHICLE_MAKES = [
+  "Audi",
+  "BMW",
+  "Mercedes-Benz",
+  "Porsche",
+  "Lamborghini",
+  "Ferrari",
+  "Rolls-Royce",
+  "Bentley",
+  "Jaguar",
+  "Land Rover",
+  "Range Rover",
+  "Volvo",
+  "Lexus",
+  "Toyota",
+  "Honda",
+  "Hyundai",
+  "Kia",
+  "Mahindra",
+  "Tata",
+  "Maruti Suzuki",
+  "Ford",
+  "Chevrolet",
+  "Jeep",
+  "Volkswagen",
+  "Skoda",
+  "MG",
+  "Tesla",
+  "BYD",
+  "Other",
+];
+
+const PPF_THICKNESS = [
+  "150 Micron",
+  "160 Micron",
+  "170 Micron",
+  "180 Micron",
+  "190 Micron",
+  "200 Micron",
+  "210 Micron",
+  "220 Micron",
+  "230 Micron",
+  "240 Micron",
+  "250 Micron",
+];
+
 const PPF_PRODUCTS = [
   "XPEL Ultimate Plus",
   "XPEL Stealth",

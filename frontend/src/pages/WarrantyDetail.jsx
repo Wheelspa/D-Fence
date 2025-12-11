@@ -110,7 +110,7 @@ export default function WarrantyDetail() {
       <div className="min-h-screen bg-[#050505]">
         <Navbar />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
-          <div className="animate-pulse text-[#D4AF37]">Loading...</div>
+          <div className="animate-pulse text-[#E53935]">Loading...</div>
         </div>
       </div>
     );
@@ -127,7 +127,7 @@ export default function WarrantyDetail() {
         <div className="mb-8">
           <button
             onClick={() => navigate("/warranties")}
-            className="flex items-center gap-2 text-[#A1A1AA] hover:text-[#D4AF37] transition-colors mb-4"
+            className="flex items-center gap-2 text-[#A1A1AA] hover:text-[#E53935] transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">Back to Warranties</span>
@@ -136,7 +136,7 @@ export default function WarrantyDetail() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <div className="flex items-center gap-4 mb-2">
-                <h1 className="font-['Chivo'] text-3xl font-black text-[#00F0FF] tracking-tight">
+                <h1 className="font-['Chivo'] text-3xl font-black text-[#E53935] tracking-tight">
                   {warranty.warranty_code}
                 </h1>
                 {getStatusBadge(warranty.status)}
@@ -151,7 +151,7 @@ export default function WarrantyDetail() {
                 data-testid="copy-link-btn"
                 variant="outline"
                 onClick={copyVerificationLink}
-                className="border-[#27272A] text-white hover:border-[#D4AF37] hover:text-[#D4AF37] bg-transparent rounded-none h-11"
+                className="border-[#27272A] text-white hover:border-[#E53935] hover:text-[#E53935] bg-transparent rounded-none h-11"
               >
                 {copied ? (
                   <CheckCircle className="w-4 h-4 mr-2" />
@@ -165,7 +165,7 @@ export default function WarrantyDetail() {
                 variant="outline"
                 onClick={sendEmail}
                 disabled={sendingEmail}
-                className="border-[#27272A] text-white hover:border-[#D4AF37] hover:text-[#D4AF37] bg-transparent rounded-none h-11"
+                className="border-[#27272A] text-white hover:border-[#E53935] hover:text-[#E53935] bg-transparent rounded-none h-11"
               >
                 <Mail className="w-4 h-4 mr-2" />
                 {sendingEmail ? "Sending..." : "Send Email"}
@@ -173,7 +173,7 @@ export default function WarrantyDetail() {
               <Button
                 data-testid="download-pdf-btn"
                 onClick={downloadPDF}
-                className="bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-[#F3E5AB] rounded-none h-11"
+                className="bg-[#E53935] text-white font-bold uppercase tracking-wider hover:bg-[#FF6F00] rounded-none h-11"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download PDF
@@ -189,7 +189,7 @@ export default function WarrantyDetail() {
             <Card className="bg-[#0A0A0A] border-[#27272A] rounded-none">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-6">
-                  <User className="w-5 h-5 text-[#D4AF37]" />
+                  <User className="w-5 h-5 text-[#E53935]" />
                   <h2 className="font-['Chivo'] text-lg font-bold text-white uppercase tracking-wider">
                     Customer Details
                   </h2>
@@ -206,7 +206,7 @@ export default function WarrantyDetail() {
             <Card className="bg-[#0A0A0A] border-[#27272A] rounded-none">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-6">
-                  <Car className="w-5 h-5 text-[#00F0FF]" />
+                  <Car className="w-5 h-5 text-[#B8860B]" />
                   <h2 className="font-['Chivo'] text-lg font-bold text-white uppercase tracking-wider">
                     Vehicle Details
                   </h2>

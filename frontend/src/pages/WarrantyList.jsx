@@ -131,7 +131,7 @@ export default function WarrantyList() {
           <Link to="/warranties/new" className="mt-4 md:mt-0">
             <Button
               data-testid="new-warranty-btn"
-              className="bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-[#F3E5AB] transition-all duration-300 rounded-none h-12 px-6"
+              className="bg-[#E53935] text-white font-bold uppercase tracking-wider hover:bg-[#FF6F00] transition-all duration-300 rounded-none h-12 px-6"
             >
               <Plus className="w-5 h-5 mr-2" />
               New Warranty
@@ -149,13 +149,13 @@ export default function WarrantyList() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by name, code, vehicle..."
-                className="pl-10 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                className="pl-10 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
               />
             </div>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
               <SelectTrigger
                 data-testid="status-filter-select"
-                className="w-full md:w-48 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                className="w-full md:w-48 bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
               >
                 <SelectValue placeholder="All Status" />
               </SelectTrigger>
@@ -169,7 +169,7 @@ export default function WarrantyList() {
             <Button
               type="submit"
               data-testid="search-btn"
-              className="h-12 px-6 bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-[#F3E5AB] transition-all duration-300 rounded-none"
+              className="h-12 px-6 bg-[#E53935] text-white font-bold uppercase tracking-wider hover:bg-[#FF6F00] transition-all duration-300 rounded-none"
             >
               Search
             </Button>
@@ -184,7 +184,7 @@ export default function WarrantyList() {
             <div className="p-12 text-center">
               <p className="text-[#A1A1AA]">No warranties found</p>
               <Link to="/warranties/new">
-                <Button className="mt-4 bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-[#F3E5AB] rounded-none">
+                <Button className="mt-4 bg-[#E53935] text-white font-bold uppercase tracking-wider hover:bg-[#FF6F00] rounded-none">
                   Create First Warranty
                 </Button>
               </Link>
@@ -224,7 +224,7 @@ export default function WarrantyList() {
                       data-testid={`warranty-row-${warranty.id}`}
                       className="border-b border-[#27272A] hover:bg-[#121212] transition-colors"
                     >
-                      <TableCell className="font-mono text-[#00F0FF]">
+                      <TableCell className="font-mono text-[#E53935]">
                         {warranty.warranty_code}
                       </TableCell>
                       <TableCell className="text-white">
@@ -250,7 +250,7 @@ export default function WarrantyList() {
                               variant="ghost"
                               size="icon"
                               data-testid={`view-warranty-${warranty.id}`}
-                              className="text-[#A1A1AA] hover:text-[#00F0FF] hover:bg-[#121212]"
+                              className="text-[#A1A1AA] hover:text-[#B8860B] hover:bg-[#121212]"
                             >
                               <Eye className="w-4 h-4" />
                             </Button>
@@ -260,7 +260,7 @@ export default function WarrantyList() {
                             size="icon"
                             data-testid={`download-pdf-${warranty.id}`}
                             onClick={() => downloadPDF(warranty.id, warranty.warranty_code)}
-                            className="text-[#A1A1AA] hover:text-[#D4AF37] hover:bg-[#121212]"
+                            className="text-[#A1A1AA] hover:text-[#E53935] hover:bg-[#121212]"
                           >
                             <Download className="w-4 h-4" />
                           </Button>

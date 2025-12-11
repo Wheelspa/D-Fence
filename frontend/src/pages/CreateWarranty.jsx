@@ -98,7 +98,7 @@ export default function CreateWarranty() {
         <div className="mb-8">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-[#A1A1AA] hover:text-[#D4AF37] transition-colors mb-4"
+            className="flex items-center gap-2 text-[#A1A1AA] hover:text-[#E53935] transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">Back</span>
@@ -115,7 +115,7 @@ export default function CreateWarranty() {
           {/* Customer Details */}
           <div className="bg-[#0A0A0A] border border-[#27272A] p-6 md:p-8">
             <div className="flex items-center gap-3 mb-6">
-              <User className="w-5 h-5 text-[#D4AF37]" />
+              <User className="w-5 h-5 text-[#E53935]" />
               <h2 className="font-['Chivo'] text-lg font-bold text-white uppercase tracking-wider">
                 Customer Details
               </h2>
@@ -130,7 +130,7 @@ export default function CreateWarranty() {
                   data-testid="customer-name-input"
                   value={formData.customer_name}
                   onChange={(e) => handleChange("customer_name", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   placeholder="John Doe"
                   required
                 />
@@ -145,7 +145,7 @@ export default function CreateWarranty() {
                   type="email"
                   value={formData.customer_email}
                   onChange={(e) => handleChange("customer_email", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   placeholder="john@example.com"
                   required
                 />
@@ -159,7 +159,7 @@ export default function CreateWarranty() {
                   data-testid="customer-phone-input"
                   value={formData.customer_phone}
                   onChange={(e) => handleChange("customer_phone", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   placeholder="+91 98765 43210"
                   required
                 />
@@ -170,7 +170,7 @@ export default function CreateWarranty() {
           {/* Vehicle Details */}
           <div className="bg-[#0A0A0A] border border-[#27272A] p-6 md:p-8">
             <div className="flex items-center gap-3 mb-6">
-              <Car className="w-5 h-5 text-[#00F0FF]" />
+              <Car className="w-5 h-5 text-[#B8860B]" />
               <h2 className="font-['Chivo'] text-lg font-bold text-white uppercase tracking-wider">
                 Vehicle Details
               </h2>
@@ -185,7 +185,7 @@ export default function CreateWarranty() {
                   data-testid="vehicle-make-input"
                   value={formData.vehicle_make}
                   onChange={(e) => handleChange("vehicle_make", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   placeholder="BMW"
                   required
                 />
@@ -199,7 +199,7 @@ export default function CreateWarranty() {
                   data-testid="vehicle-model-input"
                   value={formData.vehicle_model}
                   onChange={(e) => handleChange("vehicle_model", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   placeholder="M3"
                   required
                 />
@@ -213,7 +213,7 @@ export default function CreateWarranty() {
                   data-testid="vehicle-year-input"
                   value={formData.vehicle_year}
                   onChange={(e) => handleChange("vehicle_year", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   placeholder="2024"
                   required
                 />
@@ -227,7 +227,7 @@ export default function CreateWarranty() {
                   data-testid="vehicle-color-input"
                   value={formData.vehicle_color}
                   onChange={(e) => handleChange("vehicle_color", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   placeholder="Alpine White"
                 />
               </div>
@@ -240,7 +240,7 @@ export default function CreateWarranty() {
                   data-testid="vehicle-vin-input"
                   value={formData.vehicle_vin}
                   onChange={(e) => handleChange("vehicle_vin", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   placeholder="WBS8M9C51N5K12345"
                 />
               </div>
@@ -267,7 +267,7 @@ export default function CreateWarranty() {
                 >
                   <SelectTrigger 
                     data-testid="ppf-product-select"
-                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   >
                     <SelectValue placeholder="Select product" />
                   </SelectTrigger>
@@ -295,7 +295,7 @@ export default function CreateWarranty() {
                 >
                   <SelectTrigger 
                     data-testid="ppf-coverage-select"
-                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   >
                     <SelectValue placeholder="Select coverage" />
                   </SelectTrigger>
@@ -322,7 +322,7 @@ export default function CreateWarranty() {
                     <Button
                       data-testid="installation-date-btn"
                       variant="outline"
-                      className="w-full h-12 bg-[#121212] border-[#27272A] text-white rounded-none justify-start text-left font-normal hover:bg-[#121212] hover:border-[#D4AF37]"
+                      className="w-full h-12 bg-[#121212] border-[#27272A] text-white rounded-none justify-start text-left font-normal hover:bg-[#121212] hover:border-[#E53935]"
                     >
                       <CalendarIcon className="mr-2 h-4 w-4 text-[#A1A1AA]" />
                       {installDate ? format(installDate, "PPP") : "Pick a date"}
@@ -350,7 +350,7 @@ export default function CreateWarranty() {
                 >
                   <SelectTrigger 
                     data-testid="warranty-years-select"
-                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]"
+                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
                   >
                     <SelectValue placeholder="Select period" />
                   </SelectTrigger>
@@ -376,7 +376,7 @@ export default function CreateWarranty() {
               type="button"
               variant="outline"
               onClick={() => navigate(-1)}
-              className="h-12 px-8 border-[#27272A] text-white hover:border-[#D4AF37] hover:text-[#D4AF37] bg-transparent rounded-none"
+              className="h-12 px-8 border-[#27272A] text-white hover:border-[#E53935] hover:text-[#E53935] bg-transparent rounded-none"
             >
               Cancel
             </Button>
@@ -384,7 +384,7 @@ export default function CreateWarranty() {
               type="submit"
               data-testid="create-warranty-submit-btn"
               disabled={loading}
-              className="h-12 px-8 bg-[#D4AF37] text-black font-bold uppercase tracking-wider hover:bg-[#F3E5AB] transition-all duration-300 rounded-none"
+              className="h-12 px-8 bg-[#E53935] text-white font-bold uppercase tracking-wider hover:bg-[#FF6F00] transition-all duration-300 rounded-none"
             >
               {loading ? "Creating..." : "Create Warranty"}
             </Button>

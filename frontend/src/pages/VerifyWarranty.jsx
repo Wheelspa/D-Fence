@@ -50,7 +50,7 @@ export default function VerifyWarranty() {
           animate={{ opacity: 1 }}
           className="text-center"
         >
-          <Shield className="w-16 h-16 text-[#D4AF37] mx-auto animate-pulse" />
+          <Shield className="w-16 h-16 text-[#E53935] mx-auto animate-pulse" />
           <p className="text-[#A1A1AA] mt-4">Verifying warranty...</p>
         </motion.div>
       </div>
@@ -80,12 +80,11 @@ export default function VerifyWarranty() {
             className="text-center mb-12"
           >
             <Link to="/">
-              <div className="inline-flex items-center justify-center w-16 h-16 border-2 border-[#D4AF37] mb-4">
-                <Shield className="w-8 h-8 text-[#D4AF37]" />
-              </div>
-              <h1 className="font-['Chivo'] text-4xl font-black text-[#D4AF37] tracking-tight uppercase">
-                D-Fence
-              </h1>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_d-fence-wheelspa/artifacts/4frllqka_D-FENCE%20Logo_page-0001.jpg"
+                alt="D-Fence Logo"
+                className="w-32 h-32 mx-auto object-contain mb-2"
+              />
               <p className="text-[#A1A1AA] mt-1 font-['Manrope'] text-sm tracking-widest uppercase">
                 Warranty Verification
               </p>
@@ -158,7 +157,7 @@ export default function VerifyWarranty() {
                         <p className="text-[#A1A1AA] text-xs uppercase tracking-widest mb-1">
                           Certificate Number
                         </p>
-                        <p className="font-['Chivo'] text-2xl font-black text-[#00F0FF]">
+                        <p className="font-['Chivo'] text-2xl font-black text-[#E53935]">
                           {warranty.warranty_code}
                         </p>
                       </div>
@@ -166,8 +165,8 @@ export default function VerifyWarranty() {
                       {/* Customer */}
                       <div>
                         <div className="flex items-center gap-2 mb-4">
-                          <User className="w-4 h-4 text-[#D4AF37]" />
-                          <h3 className="text-[#D4AF37] text-xs uppercase tracking-widest font-bold">
+                          <User className="w-4 h-4 text-[#E53935]" />
+                          <h3 className="text-[#E53935] text-xs uppercase tracking-widest font-bold">
                             Customer
                           </h3>
                         </div>
@@ -177,8 +176,8 @@ export default function VerifyWarranty() {
                       {/* Vehicle */}
                       <div>
                         <div className="flex items-center gap-2 mb-4">
-                          <Car className="w-4 h-4 text-[#00F0FF]" />
-                          <h3 className="text-[#00F0FF] text-xs uppercase tracking-widest font-bold">
+                          <Car className="w-4 h-4 text-[#B8860B]" />
+                          <h3 className="text-[#B8860B] text-xs uppercase tracking-widest font-bold">
                             Vehicle
                           </h3>
                         </div>
@@ -274,7 +273,7 @@ export default function VerifyWarranty() {
           >
             <p className="text-[#52525B] text-sm">
               This certificate is issued by{" "}
-              <span className="text-[#D4AF37]">D-Fence</span>, a division of Wheelspa Private Limited
+              <span className="text-[#E53935]">D-Fence</span>, a division of Wheelspa Private Limited
             </p>
           </motion.div>
         </div>

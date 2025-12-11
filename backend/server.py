@@ -193,6 +193,10 @@ def get_warranty_status(expiry_date: str) -> str:
     expiry = datetime.fromisoformat(expiry_date.replace('Z', '+00:00'))
     now = datetime.now(timezone.utc)
     
+    # Ensure both datetimes are timezone-aware
+    if expiry.tzinfo is None:
+        expiry = expiry.replace(tzinfo=timezone.utc)
+    
     if expiry < now:
         return "expired"
     elif expiry < now + timedelta(days=30):

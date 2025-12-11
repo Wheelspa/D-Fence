@@ -496,7 +496,9 @@ async def generate_warranty_pdf(warranty_id: str):
     p.setFont("Helvetica", 11)
     
     ppf_details = [
-        ("PPF Product:", warranty["ppf_product"]),
+        ("Service Type:", warranty.get("service_type", "PPF")),
+        ("Product Brand:", warranty["ppf_product"]),
+        ("Film Thickness:", warranty.get("ppf_thickness", "N/A")),
         ("Coverage:", warranty["ppf_coverage"]),
         ("Installation Date:", warranty["installation_date"][:10]),
         ("Warranty Period:", f"{warranty['warranty_years']} Years"),

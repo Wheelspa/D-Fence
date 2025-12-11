@@ -33,16 +33,16 @@
         "subtle": "#121212"
       },
       "primary": {
-        "main": "#D4AF37",
-        "light": "#F3E5AB",
-        "dark": "#8F7524",
-        "description": "Metallic Gold - Use for Brand Identity, Certificates, and Primary CTAs"
+        "main": "#E53935",
+        "light": "#FF6F00",
+        "dark": "#B71C1C",
+        "description": "D-Fence Red - Use for Brand Identity, CTAs, and Primary Accents"
       },
       "secondary": {
-        "main": "#00F0FF",
-        "light": "#80F7FF",
-        "dark": "#0099A3",
-        "description": "Electric Cyan - Use for Data Visualization, Active States, and Dashboard Accents"
+        "main": "#B8860B",
+        "light": "#DAA520",
+        "dark": "#8B6914",
+        "description": "Gold/Bronze - Use for Certificates, Premium Accents, and Highlights"
       },
       "neutral": {
         "50": "#FAFAFA",

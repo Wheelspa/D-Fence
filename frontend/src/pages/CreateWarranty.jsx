@@ -311,16 +311,58 @@ export default function CreateWarranty() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label className="text-[#A1A1AA] uppercase text-xs tracking-widest">
-                  Make *
+                  Vehicle Type *
                 </Label>
-                <Input
-                  data-testid="vehicle-make-input"
+                <Select
+                  value={formData.vehicle_type}
+                  onValueChange={(value) => handleChange("vehicle_type", value)}
+                >
+                  <SelectTrigger 
+                    data-testid="vehicle-type-select"
+                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
+                  >
+                    <SelectValue placeholder="Select vehicle type" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-[#0A0A0A] border-[#27272A] max-h-[300px]">
+                    {VEHICLE_TYPES.map((type) => (
+                      <SelectItem
+                        key={type}
+                        value={type}
+                        className="text-white hover:bg-[#121212] focus:bg-[#121212]"
+                      >
+                        {type}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-[#A1A1AA] uppercase text-xs tracking-widest">
+                  Vehicle Make *
+                </Label>
+                <Select
                   value={formData.vehicle_make}
-                  onChange={(e) => handleChange("vehicle_make", e.target.value)}
-                  className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
-                  placeholder="BMW"
-                  required
-                />
+                  onValueChange={(value) => handleChange("vehicle_make", value)}
+                >
+                  <SelectTrigger 
+                    data-testid="vehicle-make-select"
+                    className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
+                  >
+                    <SelectValue placeholder="Select vehicle make" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-[#0A0A0A] border-[#27272A] max-h-[300px]">
+                    {VEHICLE_MAKES.map((make) => (
+                      <SelectItem
+                        key={make}
+                        value={make}
+                        className="text-white hover:bg-[#121212] focus:bg-[#121212]"
+                      >
+                        {make}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="space-y-2">
@@ -332,7 +374,7 @@ export default function CreateWarranty() {
                   value={formData.vehicle_model}
                   onChange={(e) => handleChange("vehicle_model", e.target.value)}
                   className="bg-[#121212] border-[#27272A] text-white h-12 rounded-none focus:border-[#E53935] focus:ring-1 focus:ring-[#E53935]"
-                  placeholder="M3"
+                  placeholder="e.g. M3, C-Class, Q7"
                   required
                 />
               </div>
@@ -364,7 +406,7 @@ export default function CreateWarranty() {
                 />
               </div>
 
-              <div className="space-y-2 md:col-span-2">
+              <div className="space-y-2">
                 <Label className="text-[#A1A1AA] uppercase text-xs tracking-widest">
                   VIN (Optional)
                 </Label>

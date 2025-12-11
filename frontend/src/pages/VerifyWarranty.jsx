@@ -195,20 +195,38 @@ export default function VerifyWarranty() {
                           <div className="flex items-center gap-2 mb-2">
                             <Shield className="w-4 h-4 text-[#10B981]" />
                             <h3 className="text-[#10B981] text-xs uppercase tracking-widest font-bold">
-                              PPF Product
+                              Service Type
+                            </h3>
+                          </div>
+                          <p className="text-white">{warranty.service_type || "PPF"}</p>
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2 mb-2">
+                            <Shield className="w-4 h-4 text-[#B8860B]" />
+                            <h3 className="text-[#B8860B] text-xs uppercase tracking-widest font-bold">
+                              Product Brand
                             </h3>
                           </div>
                           <p className="text-white">{warranty.ppf_product}</p>
-                          <p className="text-[#A1A1AA] text-sm">{warranty.ppf_coverage}</p>
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2 mb-2">
+                            <Shield className="w-4 h-4 text-[#A1A1AA]" />
+                            <h3 className="text-[#A1A1AA] text-xs uppercase tracking-widest font-bold">
+                              Film Thickness
+                            </h3>
+                          </div>
+                          <p className="text-white">{warranty.ppf_thickness || "N/A"}</p>
                         </div>
                         <div>
                           <div className="flex items-center gap-2 mb-2">
                             <Clock className="w-4 h-4 text-[#A1A1AA]" />
                             <h3 className="text-[#A1A1AA] text-xs uppercase tracking-widest font-bold">
-                              Warranty Period
+                              Coverage & Warranty
                             </h3>
                           </div>
-                          <p className="text-white">{warranty.warranty_years} Years</p>
+                          <p className="text-white">{warranty.ppf_coverage}</p>
+                          <p className="text-[#A1A1AA] text-sm">{warranty.warranty_years} Years</p>
                         </div>
                       </div>
 

@@ -217,6 +217,33 @@ export default function CreateWarranty() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Service Type */}
+          <div className="bg-[#0A0A0A] border border-[#27272A] p-6 md:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <Shield className="w-5 h-5 text-[#E53935]" />
+              <h2 className="font-['Chivo'] text-lg font-bold text-white uppercase tracking-wider">
+                Service Type
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {SERVICE_TYPES.map((service) => (
+                <button
+                  key={service}
+                  type="button"
+                  onClick={() => handleChange("service_type", service)}
+                  className={`p-4 border text-left transition-all duration-200 ${
+                    formData.service_type === service
+                      ? "border-[#E53935] bg-[#E53935]/10 text-white"
+                      : "border-[#27272A] bg-[#121212] text-[#A1A1AA] hover:border-[#E53935]/50"
+                  }`}
+                >
+                  <p className="font-bold uppercase text-sm tracking-wider">{service}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Customer Details */}
           <div className="bg-[#0A0A0A] border border-[#27272A] p-6 md:p-8">
             <div className="flex items-center gap-3 mb-6">

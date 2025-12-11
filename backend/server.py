@@ -100,12 +100,15 @@ class WarrantyResponse(BaseModel):
     customer_name: str
     customer_email: str
     customer_phone: str
+    service_type: str
+    vehicle_type: str
     vehicle_make: str
     vehicle_model: str
     vehicle_year: str
     vehicle_vin: Optional[str] = None
     vehicle_color: Optional[str] = None
     ppf_product: str
+    ppf_thickness: str
     ppf_coverage: str
     installation_date: str
     warranty_years: int

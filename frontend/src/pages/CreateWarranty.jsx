@@ -97,7 +97,8 @@ export default function CreateWarranty() {
       navigate(`/warranties/${response.data.id}`);
     } catch (error) {
       console.error("Error creating warranty:", error);
-      toast.error(error.response?.data?.detail || "Failed to create warranty");
+      const errorMessage = error.response?.data?.detail || error.message || "Failed to create warranty";
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }

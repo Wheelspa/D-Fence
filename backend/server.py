@@ -406,12 +406,12 @@ async def generate_warranty_pdf(warranty_id: str):
     p.rect(0, 0, width, height, fill=1)
     
     # Gold border
-    p.setStrokeColor(HexColor("#D4AF37"))
+    p.setStrokeColor(HexColor("#B8860B"))
     p.setLineWidth(3)
     p.rect(20, 20, width - 40, height - 40, stroke=1, fill=0)
     
     # Header
-    p.setFillColor(HexColor("#D4AF37"))
+    p.setFillColor(HexColor("#E53935"))
     p.setFont("Helvetica-Bold", 36)
     p.drawCentredString(width/2, height - 80, "D-FENCE")
     
@@ -424,7 +424,7 @@ async def generate_warranty_pdf(warranty_id: str):
     p.drawCentredString(width/2, height - 150, "WARRANTY CERTIFICATE")
     
     # Warranty Code
-    p.setFillColor(HexColor("#00F0FF"))
+    p.setFillColor(HexColor("#E53935"))
     p.setFont("Helvetica-Bold", 14)
     p.drawCentredString(width/2, height - 180, f"Certificate No: {warranty['warranty_code']}")
     
@@ -432,7 +432,7 @@ async def generate_warranty_pdf(warranty_id: str):
     y_pos = height - 230
     left_margin = 60
     
-    p.setFillColor(HexColor("#D4AF37"))
+    p.setFillColor(HexColor("#E53935"))
     p.setFont("Helvetica-Bold", 14)
     p.drawString(left_margin, y_pos, "CUSTOMER DETAILS")
     
@@ -455,7 +455,7 @@ async def generate_warranty_pdf(warranty_id: str):
     
     # Vehicle Details
     y_pos -= 20
-    p.setFillColor(HexColor("#D4AF37"))
+    p.setFillColor(HexColor("#B8860B"))
     p.setFont("Helvetica-Bold", 14)
     p.drawString(left_margin, y_pos, "VEHICLE DETAILS")
     
@@ -479,7 +479,7 @@ async def generate_warranty_pdf(warranty_id: str):
     
     # PPF Details
     y_pos -= 20
-    p.setFillColor(HexColor("#D4AF37"))
+    p.setFillColor(HexColor("#10B981"))
     p.setFont("Helvetica-Bold", 14)
     p.drawString(left_margin, y_pos, "PROTECTION DETAILS")
     

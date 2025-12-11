@@ -472,6 +472,7 @@ async def generate_warranty_pdf(warranty_id: str):
     p.setFont("Helvetica", 11)
     
     vehicle_details = [
+        ("Type:", warranty.get("vehicle_type", "N/A")),
         ("Make:", warranty["vehicle_make"]),
         ("Model:", warranty["vehicle_model"]),
         ("Year:", warranty["vehicle_year"]),

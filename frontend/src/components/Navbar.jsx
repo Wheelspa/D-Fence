@@ -42,7 +42,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img 
-              src="https://customer-assets.emergentagent.com/job_d-fence-wheelspa/artifacts/4frllqka_D-FENCE%20Logo_page-0001.jpg"
+              src="/logo.jpg"
               alt="D-Fence Logo"
               className="w-12 h-12 object-contain"
             />

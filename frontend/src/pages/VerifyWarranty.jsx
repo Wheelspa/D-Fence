@@ -81,7 +81,7 @@ export default function VerifyWarranty() {
           >
             <Link to="/">
               <img 
-                src="https://customer-assets.emergentagent.com/job_d-fence-wheelspa/artifacts/4frllqka_D-FENCE%20Logo_page-0001.jpg"
+                src="/logo.jpg"
                 alt="D-Fence Logo"
                 className="w-32 h-32 mx-auto object-contain mb-2"
               />

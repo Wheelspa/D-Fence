@@ -92,6 +92,7 @@ const PPF_THICKNESS = [
 ];
 
 const PPF_PRODUCTS = [
+  "D-Fence",
   "XPEL Ultimate Plus",
   "XPEL Stealth",
   "3M Pro Series",

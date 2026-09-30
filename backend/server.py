@@ -10,6 +10,7 @@ from pathlib import Path
 from pydantic import BaseModel, Field, EmailStr
 from typing import List, Optional
 import uuid
+import secrets
 from datetime import datetime, timezone, timedelta
 from passlib.context import CryptContext
 from jose import JWTError, jwt
@@ -65,6 +66,13 @@ class UserCreate(BaseModel):
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str
 
 class UserResponse(BaseModel):
     id: str
@@ -278,6 +286,116 @@ async def get_me(current_user: dict = Depends(get_current_user)):
         name=current_user["name"],
         created_at=current_user["created_at"]
     )
+
+@api_router.post("/auth/forgot-password")
+async def forgot_password(request: ForgotPasswordRequest):
+    generic_response = {
+        "message": "If an account with that email exists, a password reset link has been sent."
+    }
+    
+    user = await db.users.find_one({"email": request.email})
+    if not user:
+        return generic_response
+    
+    # Generate secure reset token
+    reset_token = secrets.token_urlsafe(32)
+    expires_at = (datetime.now(timezone.utc) + timedelta(hours=1)).isoformat()
+    
+    # Store token in database
+    token_doc = {
+        "id": str(uuid.uuid4()),
+        "user_id": user["id"],
+        "email": user["email"],
+        "token": reset_token,
+        "expires_at": expires_at,
+        "used": False,
+        "created_at": datetime.now(timezone.utc).isoformat()
+    }
+    await db.password_resets.insert_one(token_doc)
+    
+    # Send email if Resend is configured
+    resend_key = os.environ.get('RESEND_API_KEY')
+    sender_email = os.environ.get('SENDER_EMAIL')
+    
+    if resend_key and sender_email:
+        try:
+            import resend
+            resend.api_key = resend_key
+            
+            frontend_url = os.environ.get('FRONTEND_URL', 'http://localhost:3000')
+            reset_url = f"{frontend_url}/reset-password/{reset_token}"
+            
+            html_content = f"""
+            <html>
+            <body style="font-family: Arial, sans-serif; background-color: #050505; color: #fff; padding: 40px;">
+                <div style="max-width: 600px; margin: 0 auto; background-color: #0A0A0A; padding: 40px; border: 1px solid #27272A;">
+                    <h1 style="color: #E53935; text-align: center;">D-FENCE</h1>
+                    <p style="color: #A1A1AA; text-align: center; margin-bottom: 30px;">by Wheelspa Private Limited</p>
+                    
+                    <h2 style="color: #fff;">Password Reset Request</h2>
+                    
+                    <p>Dear {user.get('name', 'User')},</p>
+                    
+                    <p>We received a request to reset your D-Fence Warranty System password. Click the button below to set a new password:</p>
+                    
+                    <div style="text-align: center; margin: 30px 0;">
+                        <a href="{reset_url}" style="background-color: #E53935; color: #ffffff; padding: 14px 28px; text-decoration: none; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">Reset Password</a>
+                    </div>
+                    
+                    <p style="color: #A1A1AA; font-size: 14px;">Or copy and paste this link into your browser:</p>
+                    <p style="word-break: break-all;"><a href="{reset_url}" style="color: #00F0FF;">{reset_url}</a></p>
+                    
+                    <p style="margin-top: 30px; color: #71717A; font-size: 12px;">
+                        This link will expire in 1 hour. If you did not request a password reset, you can safely ignore this email.
+                    </p>
+                </div>
+            </body>
+            </html>
+            """
+            
+            params: resend.Emails.SendParams = {
+                "from": sender_email,
+                "to": [user["email"]],
+                "subject": "D-Fence Password Reset Request",
+                "html": html_content,
+            }
+            
+            resend.Emails.send(params)
+        except Exception as e:
+            logger.error(f"Failed to send password reset email: {str(e)}")
+    
+    return generic_response
+
+@api_router.post("/auth/reset-password")
+async def reset_password(request: ResetPasswordRequest):
+    if not request.new_password or len(request.new_password.strip()) == 0:
+        raise HTTPException(status_code=400, detail="Password cannot be empty")
+        
+    reset_record = await db.password_resets.find_one({"token": request.token, "used": False})
+    if not reset_record:
+        raise HTTPException(status_code=400, detail="Invalid or expired reset token")
+        
+    expires_at = datetime.fromisoformat(reset_record["expires_at"].replace('Z', '+00:00'))
+    if expires_at.tzinfo is None:
+        expires_at = expires_at.replace(tzinfo=timezone.utc)
+        
+    if expires_at < datetime.now(timezone.utc):
+        raise HTTPException(status_code=400, detail="Reset token has expired")
+        
+    # Hash new password and update user
+    hashed_password = get_password_hash(request.new_password)
+    await db.users.update_one(
+        {"id": reset_record["user_id"]},
+        {"$set": {"password": hashed_password}}
+    )
+    
+    # Mark token as used
+    await db.password_resets.update_one(
+        {"id": reset_record["id"]},
+        {"$set": {"used": True}}
+    )
+    
+    return {"message": "Password updated successfully. You can now log in with your new password."}
 
 # ============== WARRANTY ROUTES ==============
 
@@ -595,19 +713,19 @@ async def send_warranty_email(warranty_id: str, current_user: dict = Depends(get
     if not warranty:
         raise HTTPException(status_code=404, detail="Warranty not found")
     
-    sendgrid_key = os.environ.get('SENDGRID_API_KEY')
+    resend_key = os.environ.get('RESEND_API_KEY')
     sender_email = os.environ.get('SENDER_EMAIL')
     
-    if not sendgrid_key or not sender_email:
-        # Return success with mock message if SendGrid not configured
+    if not resend_key or not sender_email:
+        # Return success with mock message if Resend not configured
         return {
-            "message": "Email functionality not configured. Please set SENDGRID_API_KEY and SENDER_EMAIL.",
+            "message": "Email functionality not configured. Please set RESEND_API_KEY and SENDER_EMAIL.",
             "status": "skipped"
         }
     
     try:
-        from sendgrid import SendGridAPIClient
-        from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
+        import resend
+        resend.api_key = resend_key
         
         verification_url = f"{os.environ.get('FRONTEND_URL', 'http://localhost:3000')}/verify/{warranty['warranty_code']}"
         
@@ -643,15 +761,14 @@ async def send_warranty_email(warranty_id: str, current_user: dict = Depends(get
         </html>
         """
         
-        message = Mail(
-            from_email=sender_email,
-            to_emails=warranty['customer_email'],
-            subject=f"Your D-Fence Warranty Certificate - {warranty['warranty_code']}",
-            html_content=html_content
-        )
+        params: resend.Emails.SendParams = {
+            "from": sender_email,
+            "to": [warranty['customer_email']],
+            "subject": f"Your D-Fence Warranty Certificate - {warranty['warranty_code']}",
+            "html": html_content,
+        }
         
-        sg = SendGridAPIClient(sendgrid_key)
-        response = sg.send(message)
+        resend.Emails.send(params)
         
         return {"message": "Email sent successfully", "status": "sent"}
     except Exception as e:

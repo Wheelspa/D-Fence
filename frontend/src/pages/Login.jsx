@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -113,9 +113,20 @@ export default function Login() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-[#A1A1AA] uppercase text-xs tracking-widest">
-                  Password
-                </Label>
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="password" className="text-[#A1A1AA] uppercase text-xs tracking-widest">
+                    Password
+                  </Label>
+                  {isLogin && (
+                    <Link
+                      to="/forgot-password"
+                      data-testid="forgot-password-link"
+                      className="text-xs text-[#A1A1AA] hover:text-[#E53935] transition-colors"
+                    >
+                      Forgot Password?
+                    </Link>
+                  )}
+                </div>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#52525B]" />
                   <Input

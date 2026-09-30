@@ -1,9 +1,9 @@
-﻿# D-Fence Warranty Management System
+# D-Fence Warranty Management System
 
 Warranty Management Application for Paint Protection Film (PPF), Wrap, and Window Filming services operated by Wheelspa Private Limited under the **D-Fence** brand.
 
 ## Stack Overview
-- **Backend**: FastAPI (Python), Motor (Async MongoDB), ReportLab (PDF), PyJWT, SendGrid.
+- **Backend**: FastAPI (Python), Motor (Async MongoDB), ReportLab (PDF), PyJWT, Resend.
 - **Frontend**: React 19, Tailwind CSS, Radix UI / Shadcn, Recharts, Axios.
 
 ---
@@ -19,8 +19,8 @@ Warranty Management Application for Paint Protection Film (PPF), Wrap, and Windo
 | `JWT_SECRET` | Secret key for signing JWT tokens (**REQUIRED**) | `dfence-warranty-secret-key-2026` | `<generate-strong-random-key>` |
 | `FRONTEND_URL` | Base URL of frontend (used for QR code URLs & emails) | `http://localhost:3000` | `https://warranty.d-fence.com` |
 | `CORS_ORIGINS` | Allowed CORS origins (comma-separated or `*`) | `*` | `https://warranty.d-fence.com` |
-| `SENDGRID_API_KEY` | SendGrid API key for certificate emails | `your_sendgrid_key_here` | `SG.xxxxxxxx...` |
-| `SENDER_EMAIL` | Sender address for emails | `noreply@yourdomain.com` | `certificates@d-fence.com` |
+| `RESEND_API_KEY` | Resend API key for certificate emails | `re_123456789` | `re_xxxxxxxx...` |
+| `SENDER_EMAIL` | Sender address for emails | `warranty@defenceppf.in` | `warranty@defenceppf.in` |
 
 > **Note on `FRONTEND_URL` Deployment**:
 > The `FRONTEND_URL` is baked into the QR codes stored in MongoDB during warranty creation. Always set `FRONTEND_URL` to your live domain before registering production warranties, otherwise QR codes will point to `localhost`.

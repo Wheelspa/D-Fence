@@ -38,6 +38,7 @@ const VEHICLE_TYPES = [
   "Convertible",
   "Pickup Truck",
   "Van",
+  "Scorpio",
   "Sports Car",
   "Luxury Car",
   "Electric Vehicle",
